@@ -92,7 +92,7 @@ const BOOKMARKS = [
     desc: "实用优先的 CSS 框架"
   },
 
-  // ===== AI / GPT =====
+  // ===== AI =====
   {
     id: 12,
     name: "ChatGPT",
@@ -171,8 +171,8 @@ const BOOKMARKS = [
   }
 ];
 
-// 后台管理密码（建议修改）
+// 后台管理密码（请修改这个）
 const ADMIN_PASSWORD = "admin123";
 
-// 默认图标（当无法获取网站图标时使用）
+// 默认图标
 const DEFAULT_ICON = "";
