@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>书签导航</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <!-- 顶部导航 -->
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <i class="fa-solid fa-bookmark"></i>
+        <span>我的书签</span>
+      </div>
+      <div class="search-box">
+        <i class="fa-solid fa-search"></i>
+        <input type="text" id="searchInput" placeholder="搜索书签...">
+      </div>
+      <a href="admin.html" class="admin-btn"><i class="fa-solid fa-lock"></i> 管理</a>
+    </div>
+  </header>
+
+  <!-- 分类标签 -->
+  <div class="category-bar">
+    <div class="category-inner" id="categoryBar">
+      <button class="cat-btn active" data-cat="all">全部</button>
+    </div>
+  </div>
+
+  <!-- 书签列表 -->
+  <main>
+    <div class="bookmark-grid" id="bookmarkGrid"></div>
+    <div class="empty-tip" id="emptyTip" style="display:none">
+      <i class="fa-solid fa-box-open"></i>
+      <p>暂无书签</p>
+    </div>
+  </main>
+
+  <footer>
+    <p>Powered by <a href="https://github.com" target="_blank">GitHub Pages</a></p>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
