@@ -171,7 +171,7 @@ const BOOKMARKS = [
   }
 ];
 
-// 后台管理密码（请修改这个）
+// 后台管理密码
 const ADMIN_PASSWORD = "Shu2026#xK9$mN2";
 
 // 默认图标
