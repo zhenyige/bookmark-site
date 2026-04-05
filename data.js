@@ -163,7 +163,7 @@ const BOOKMARKS = [
 ];
 
 // 后台管理密码
-const ADMIN_PASSWORD = "whywhy88";
+const ADMIN_PASSWORD = "Shu2026#xK9$mN2";
 
 // 默认图标
 const DEFAULT_ICON = "";
