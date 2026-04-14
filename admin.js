@@ -12,6 +12,16 @@ const loginPwd = document.getElementById('loginPwd');
 const loginTip = document.getElementById('loginTip');
 const adminSearch = document.getElementById('adminSearch');
 
+// 为名称生成稳定颜色（与前台一致）
+function nameColor(name) {
+  let hash = 0;
+  for (let i = 0; i < name.length; i++) {
+    hash = name.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  const hue = Math.abs(hash) % 360;
+  return `hsl(${hue}, 55%, 50%)`;
+}
+
 // 检查是否已登录
 function checkLogin() {
   if (sessionStorage.getItem('bookmark_admin') === ADMIN_PASSWORD) {
@@ -82,10 +92,9 @@ function resetForm() {
   document.getElementById('fUrl').value = '';
   document.getElementById('fCat').value = '';
   document.getElementById('fCatNew').value = '';
-  document.getElementById('fIcon').value = '';
   document.getElementById('fDesc').value = '';
   editingId = null;
-  formTitle.innerHTML = '<i class="fa-solid fa-plus"></i> 添加书签';
+  formTitle.innerHTML = '<svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg> 添加书签';
   formTip.textContent = '';
   formTip.className = 'form-tip';
 }
@@ -96,7 +105,6 @@ function saveBookmark() {
   const url = document.getElementById('fUrl').value.trim();
   const catSelect = document.getElementById('fCat').value;
   const catNew = document.getElementById('fCatNew').value.trim();
-  const icon = document.getElementById('fIcon').value.trim();
   const desc = document.getElementById('fDesc').value.trim();
 
   if (!name || !url) {
@@ -118,7 +126,6 @@ function saveBookmark() {
       bookmarks[idx].name = name;
       bookmarks[idx].url = url;
       bookmarks[idx].category = category;
-      bookmarks[idx].icon = icon;
       bookmarks[idx].desc = desc;
     }
     formTip.textContent = '✅ 更新成功！记得导出更新 data.js';
@@ -126,7 +133,7 @@ function saveBookmark() {
   } else {
     // 新增
     const newId = bookmarks.length > 0 ? Math.max(...bookmarks.map(b => b.id)) + 1 : 1;
-    bookmarks.push({ id: newId, name, url, category, icon, desc });
+    bookmarks.push({ id: newId, name, url, category, desc });
     formTip.textContent = '✅ 添加成功！记得导出更新 data.js';
     formTip.className = 'form-tip success';
   }
@@ -146,10 +153,9 @@ function editBookmark(id) {
   document.getElementById('fName').value = b.name;
   document.getElementById('fUrl').value = b.url;
   document.getElementById('fCat').value = b.category;
-  document.getElementById('fIcon').value = b.icon || '';
   document.getElementById('fDesc').value = b.desc || '';
   editingId = id;
-  formTitle.innerHTML = '<i class="fa-solid fa-pen-to-square"></i> 编辑书签';
+  formTitle.innerHTML = '<svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg> 编辑书签';
   formTip.textContent = '';
   formTip.className = 'form-tip';
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -186,13 +192,12 @@ function renderAdminList() {
     return;
   }
 
-  listEl.innerHTML = list.map(b => `
+  listEl.innerHTML = list.map(b => {
+    const color = nameColor(b.name);
+    return `
     <div class="admin-item">
-      <div class="admin-item-icon">
-        ${b.icon
-          ? `<img src="${b.icon}" onerror="this.parentElement.innerHTML='<span style=font-size:18px>${b.name[0]}</span>'">`
-          : `<span style="font-size:18px;color:var(--primary)">${b.name[0]}</span>`
-        }
+      <div class="admin-item-icon" style="background:${color}">
+        <span style="color:#fff">${b.name[0]}</span>
       </div>
       <div class="admin-item-info">
         <div class="admin-item-name">${b.name}</div>
@@ -200,11 +205,11 @@ function renderAdminList() {
         <span class="admin-item-cat">${b.category}</span>
       </div>
       <div class="admin-item-actions">
-        <button class="btn-edit" onclick="editBookmark(${b.id})"><i class="fa-solid fa-pen"></i></button>
-        <button class="btn-del" onclick="deleteBookmark(${b.id})"><i class="fa-solid fa-trash"></i></button>
+        <button class="btn-edit" onclick="editBookmark(${b.id})">✏️</button>
+        <button class="btn-del" onclick="deleteBookmark(${b.id})">🗑️</button>
       </div>
-    </div>
-  `).join('');
+    </div>`;
+  }).join('');
 }
 
 // 分类筛选
@@ -216,7 +221,7 @@ function filterAdminCat(btn, cat) {
 
 // 导出数据
 function exportData() {
-  const content = `// 书签数据 - 修改这个文件来管理书签\nconst BOOKMARKS = ${JSON.stringify(bookmarks, null, 2)};\n\n// 后台管理密码\nconst ADMIN_PASSWORD = "${ADMIN_PASSWORD}";\n\n// 默认图标\nconst DEFAULT_ICON = "";\n`;
+  const content = `// 书签数据 - 修改这个文件来管理书签\n// icon 字段已废弃，图标由名称首字母自动生成彩色方块\nconst BOOKMARKS = ${JSON.stringify(bookmarks, null, 2)};\n\n// 后台管理密码\nconst ADMIN_PASSWORD = "${ADMIN_PASSWORD}";\n`;
 
   const blob = new Blob([content], { type: 'application/javascript' });
   const a = document.createElement('a');
