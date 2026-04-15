@@ -1,4 +1,4 @@
-// 书签数据
+﻿// 书签数据
 // 图标由名称首字母自动生成彩色方块，无需手动配置
 const BOOKMARKS = [
 
@@ -557,13 +557,6 @@ const BOOKMARKS = [
   },
   {
     id: 109,
-    name: "网易云课堂",
-    url: "https://study.163.com",
-    category: "学习",
-    desc: "综合技能课程"
-  },
-  {
-    id: 110,
     name: "我要自学网",
     url: "https://www.51zxw.net",
     category: "学习",
@@ -1308,7 +1301,7 @@ const BOOKMARKS = [
   {
     id: 282,
     name: "Pinterest",
-    url: "https://www.pinterest.com",
+    url: "https://pinterest.com",
     category: "设计",
     desc: "图片灵感收藏"
   },
@@ -1662,111 +1655,76 @@ const BOOKMARKS = [
 
   {
     id: 400,
-    name: "Timm",
-    url: "https://www.aiconfig.news",
-    category: "工具网站",
-    desc: "AI 工具导航"
-  },
-  {
-    id: 401,
     name: "AIHub",
     url: "https://aihub.cn",
     category: "工具网站",
     desc: "国内 AI 工具导航"
   },
   {
-    id: 402,
+    id: 401,
     name: "Future Tools",
     url: "https://www.futuretools.io",
     category: "工具网站",
     desc: "AI 工具收藏"
   },
   {
-    id: 403,
+    id: 402,
     name: "There's an AI for That",
     url: "https://theresanaiforthat.com",
     category: "工具网站",
     desc: "AI 工具搜索引擎"
   },
   {
-    id: 404,
+    id: 403,
     name: "Product Hunt",
     url: "https://www.producthunt.com",
     category: "工具网站",
     desc: "新产品发现"
   },
   {
-    id: 405,
+    id: 404,
     name: "小众软件",
     url: "https://www.appinn.com",
     category: "工具网站",
     desc: "有趣软件推荐"
   },
   {
-    id: 406,
+    id: 405,
     name: "异次元",
     url: "https://www.iplaysoft.com",
     category: "工具网站",
     desc: "正版软件推荐"
   },
   {
-    id: 407,
+    id: 406,
     name: "Topbook",
     url: "https://topbook.cc",
     category: "工具网站",
     desc: "效率工具视频"
   },
   {
-    id: 408,
-    name: "香当网",
-    url: "https://xiangdang.net",
-    category: "工具网站",
-    desc: "文档模板下载"
-  },
-  {
-    id: 409,
+    id: 407,
     name: "知犀思维导图",
     url: "https://www.zhixi.com",
     category: "工具网站",
     desc: "免费思维导图"
   },
   {
-    id: 410,
+    id: 408,
     name: "秘塔搜索",
     url: "https://metaso.cn",
     category: "工具网站",
     desc: "AI 搜索引擎"
   },
   {
-    id: 411,
-    name: "夸克搜索",
-    url: "https://quark.sm.cn",
-    category: "工具网站",
-    desc: "阿里 AI 搜索"
-  },
-  {
-    id: 412,
-    name: "纳米搜索",
-    url: "https://www.nimasoso.com",
-    category: "工具网站",
-    desc: "360 AI 搜索"
-  },
-  {
-    id: 413,
+    id: 409,
     name: "Kimi 探索版",
     url: "https://kimi.moonshot.cn/explore",
     category: "工具网站",
     desc: "Kimi 深度搜索"
   },
   {
-    id: 414,
-    name: "秘塔AI搜索",
-    url: "https://metaso.cn",
-    category: "工具网站",
-    desc: "无广告 AI 搜索"
-  },
-  {
-    id: 415,
+    id: 410,
     name: "知乎直答",
     url: "https://www.zhihu.com/answer",
     category: "工具网站",
