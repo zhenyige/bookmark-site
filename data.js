@@ -18,6 +18,20 @@ const BOOKMARKS = [
     category: "我的",
     desc: "个人书签导航"
   },
+  {
+    id: 3,
+    name: "NAS 主页",
+    url: "https://laomen98.5ddd.com/",
+    category: "我的",
+    desc: "fnOS 私人NAS外网访问"
+  },
+  {
+    id: 4,
+    name: "NAS 内网",
+    url: "http://192.168.10.152",
+    category: "我的",
+    desc: "NAS 本地管理后台"
+  },
 
   // ===== AI =====
 
@@ -975,48 +989,6 @@ const BOOKMARKS = [
     desc: "网易笔记"
   },
   {
-    id: 196,
-    name: "OneDrive",
-    url: "https://www.microsoft.com/microsoft-365/onedrive",
-    category: "常用工具",
-    desc: "微软云盘"
-  },
-  {
-    id: 197,
-    name: "百度网盘",
-    url: "https://pan.baidu.com",
-    category: "常用工具",
-    desc: "百度云盘"
-  },
-  {
-    id: 198,
-    name: "阿里云盘",
-    url: "https://www.aliyundrive.com",
-    category: "常用工具",
-    desc: "阿里云盘"
-  },
-  {
-    id: 199,
-    name: "夸克网盘",
-    url: "https://pan.quark.cn",
-    category: "常用工具",
-    desc: "夸克云盘"
-  },
-  {
-    id: 200,
-    name: "Google Drive",
-    url: "https://drive.google.com",
-    category: "常用工具",
-    desc: "谷歌云盘"
-  },
-  {
-    id: 201,
-    name: "Dropbox",
-    url: "https://www.dropbox.com",
-    category: "常用工具",
-    desc: "云存储服务"
-  },
-  {
     id: 202,
     name: "腾讯文档",
     url: "https://docs.qq.com",
@@ -1649,6 +1621,243 @@ const BOOKMARKS = [
     url: "https://bsky.app",
     category: "社交",
     desc: "去中心化社交平台"
+  },
+
+  // ===== 游戏平台 =====
+
+  {
+    id: 420,
+    name: "Steam",
+    url: "https://store.steampowered.com",
+    category: "游戏平台",
+    desc: "全球最大游戏平台"
+  },
+  {
+    id: 421,
+    name: "Epic Games",
+    url: "https://store.epicgames.com",
+    category: "游戏平台",
+    desc: "Epic 游戏商城"
+  },
+  {
+    id: 422,
+    name: "GOG",
+    url: "https://www.gog.com",
+    category: "游戏平台",
+    desc: "无DRM游戏商城"
+  },
+  {
+    id: 423,
+    name: "Nintendo Switch",
+    url: "https://www.nintendo.com",
+    category: "游戏平台",
+    desc: "任天堂 Switch"
+  },
+  {
+    id: 424,
+    name: "PlayStation Store",
+    url: "https://store.playstation.com",
+    category: "游戏平台",
+    desc: "索尼 PS 游戏商店"
+  },
+  {
+    id: 425,
+    name: "Xbox Store",
+    url: "https://www.xbox.com/games/store",
+    category: "游戏平台",
+    desc: "微软 Xbox 游戏商店"
+  },
+  {
+    id: 426,
+    name: "EA app",
+    url: "https://www.ea.com/ea-app",
+    category: "游戏平台",
+    desc: "EA PC 游戏客户端"
+  },
+  {
+    id: 427,
+    name: "Ubisoft Connect",
+    url: "https://connect.ubisoft.com",
+    category: "游戏平台",
+    desc: "育碧游戏平台"
+  },
+  {
+    id: 428,
+    name: "Origin / EA",
+    url: "https://www.origin.com",
+    category: "游戏平台",
+    desc: "EA 原点平台"
+  },
+  {
+    id: 429,
+    name: "Battle.net",
+    url: "https://www.blizzard.com",
+    category: "游戏平台",
+    desc: "暴雪战网"
+  },
+  {
+    id: 430,
+    name: "Steam 社区",
+    url: "https://steamcommunity.com",
+    category: "游戏平台",
+    desc: "Steam 玩家社区"
+  },
+  {
+    id: 431,
+    name: "Epic 社区",
+    url: "https://store.epicgames.com/zh-CN/",
+    category: "游戏平台",
+    desc: "Epic 社区"
+  },
+  {
+    id: 432,
+    name: "WeGame",
+    url: "https://www.wegame.com",
+    category: "游戏平台",
+    desc: "腾讯 WeGame 游戏平台"
+  },
+  {
+    id: 433,
+    name: "SteamDB",
+    url: "https://steamdb.info",
+    category: "游戏平台",
+    desc: "Steam 游戏数据库"
+  },
+  {
+    id: 434,
+    name: "Steam 创意工坊",
+    url: "https://steamcommunity.com/workshop",
+    category: "游戏平台",
+    desc: "Steam 创意工坊 Mod"
+  },
+
+  // ===== 网盘 =====
+
+  {
+    id: 450,
+    name: "百度网盘",
+    url: "https://pan.baidu.com",
+    category: "网盘",
+    desc: "百度云盘"
+  },
+  {
+    id: 451,
+    name: "阿里云盘",
+    url: "https://www.aliyundrive.com",
+    category: "网盘",
+    desc: "阿里云盘"
+  },
+  {
+    id: 452,
+    name: "夸克网盘",
+    url: "https://pan.quark.cn",
+    category: "网盘",
+    desc: "夸克云盘"
+  },
+  {
+    id: 453,
+    name: "天翼云盘",
+    url: "https://cloud.189.cn",
+    category: "网盘",
+    desc: "电信天翼云"
+  },
+  {
+    id: 454,
+    name: "移动云盘",
+    url: "https://yun.139.com",
+    category: "网盘",
+    desc: "中国移动云盘"
+  },
+  {
+    id: 455,
+    name: "联通云盘",
+    url: "https://cloud.wo.com.cn",
+    category: "网盘",
+    desc: "联通云盘"
+  },
+  {
+    id: 456,
+    name: "迅雷云盘",
+    url: "https://cloud.xunlei.com",
+    category: "网盘",
+    desc: "迅雷云盘"
+  },
+  {
+    id: 457,
+    name: "115网盘",
+    url: "https://115.com",
+    category: "网盘",
+    desc: "115云存储"
+  },
+  {
+    id: 458,
+    name: "蓝奏云",
+    url: "https://www.lanzou.com",
+    category: "网盘",
+    desc: "蓝奏云存储"
+  },
+  {
+    id: 459,
+    name: "奶牛快传",
+    url: "https://cowtransfer.com",
+    category: "网盘",
+    desc: "临时大文件传输"
+  },
+  {
+    id: 460,
+    name: "文叔叔",
+    url: "https://www.wenshushu.cn",
+    category: "网盘",
+    desc: "不限速文件传输"
+  },
+  {
+    id: 461,
+    name: "OneDrive",
+    url: "https://www.microsoft.com/microsoft-365/onedrive",
+    category: "网盘",
+    desc: "微软云盘"
+  },
+  {
+    id: 462,
+    name: "Google Drive",
+    url: "https://drive.google.com",
+    category: "网盘",
+    desc: "谷歌云盘"
+  },
+  {
+    id: 463,
+    name: "Dropbox",
+    url: "https://www.dropbox.com",
+    category: "网盘",
+    desc: "Dropbox 云存储"
+  },
+  {
+    id: 464,
+    name: "iCloud",
+    url: "https://www.icloud.com",
+    category: "网盘",
+    desc: "苹果 iCloud"
+  },
+  {
+    id: 465,
+    name: "MEGA",
+    url: "https://mega.io",
+    category: "网盘",
+    desc: "大文件云存储"
+  },
+  {
+    id: 466,
+    name: "pCloud",
+    url: "https://www.pcloud.com",
+    category: "网盘",
+    desc: "欧洲云存储"
+  },
+  {
+    id: 467,
+    name: "坚果云",
+    url: "https://www.jianguoyun.com",
+    category: "网盘",
+    desc: "国内同步云盘"
   },
 
   // ===== 工具网站 =====
