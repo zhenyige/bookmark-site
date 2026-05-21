@@ -1939,4 +1939,11 @@ const BOOKMARKS = [
     category: "工具网站",
     desc: "知乎 AI 问答"
   }
+  {
+    id: 500,
+    name: "AI大模型成长计划（改进版）",
+    url: "ai-learning-plan.html",
+    category: "我的",
+    desc: "30天AI学习计划（改进版）"
+  },
 ];
