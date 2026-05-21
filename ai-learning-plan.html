@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI 大模型成长计划（改进版）| 真一格书签</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #FAFAF8; --card-bg: #FFFFFF; --text: #3D3D3D; --text-light: #8A8A8A;
+  --border: #EDEDEA; --accent-green: #8FAE8B; --accent-pink: #C9A9A6;
+  --accent-blue: #8EAFC2; --accent-orange: #D4A574; --shadow: 0 2px 12px rgba(0,0,0,0.06); --radius: 12px;
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; line-height: 1.8; }
+.top-bar { height: 4px; background: linear-gradient(90deg, var(--accent-green), var(--accent-pink), var(--accent-blue), var(--accent-orange)); }
+header { background: #F5F5F3; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+.header-inner { max-width: 900px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; gap: 16px; }
+.back-link { display: flex; align-items: center; gap: 6px; color: var(--text-light); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+.back-link:hover { color: var(--text); }
+.back-link svg { width: 16px; height: 16px; }
+.site-name { font-size: 0.85rem; color: var(--text-light); }
+.container { max-width: 800px; margin: 0 auto; padding: 48px 24px 80px; }
+.article-title { font-family: 'Noto Serif SC', serif; font-size: 2rem; font-weight: 700; color: var(--text); line-height: 1.3; margin-bottom: 8px; }
+.article-meta { font-size: 0.85rem; color: var(--text-light); margin-bottom: 32px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+h1, h2, h3 { font-family: 'Noto Serif SC', serif; color: var(--text); line-height: 1.4; }
+h1 { font-size: 1.6rem; margin: 48px 0 20px; }
+h2 { font-size: 1.3rem; margin: 40px 0 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+h3 { font-size: 1.1rem; margin: 28px 0 12px; }
+p { margin-bottom: 12px; }
+blockquote { margin: 16px 0; padding: 14px 20px; background: rgba(143,174,139,0.1); border-left: 3px solid var(--accent-green); border-radius: 0 var(--radius) var(--radius) 0; color: #555; font-size: 0.95rem; }
+hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+.task { display: flex; align-items: flex-start; gap: 10px; padding: 10px 14px; margin-bottom: 6px; border-radius: var(--radius); font-size: 0.95rem; }
+.task-todo { background: rgba(210,210,205,0.4); }
+.task-done { background: rgba(143,174,139,0.15); color: #5a7a55; text-decoration: line-through; opacity: 0.75; }
+.check { flex-shrink: 0; }
+.list-item { display: flex; align-items: baseline; gap: 8px; margin-bottom: 6px; font-size: 0.95rem; }
+.bullet { color: var(--accent-pink); flex-shrink: 0; font-weight: 700; }
+.code-block { background: #2D2D2D; border-radius: var(--radius); padding: 20px; margin: 16px 0; overflow-x: auto; }
+.code-block code { font-family: monospace; font-size: 0.85rem; color: #E0E0E0; white-space: pre; display: block; }
+.table-wrap { overflow-x: auto; margin: 20px 0; border-radius: var(--radius); border: 1px solid var(--border); }
+table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+th { background: #F0F0EC; padding: 10px 14px; text-align: left; font-weight: 600; color: #555; }
+td { padding: 10px 14px; border-top: 1px solid var(--border); }
+tr:nth-child(even) td { background: rgba(0,0,0,0.015); }
+code { background: rgba(0,0,0,0.06); padding: 2px 6px; border-radius: 4px; font-size: 0.88em; font-family: monospace; }
+a { color: var(--accent-blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+@media (max-width: 600px) { .article-title { font-size: 1.5rem; } .container { padding: 32px 16px 60px; } }
+footer { text-align: center; padding: 32px 0; color: var(--text-light); font-size: 0.8rem; border-top: 1px solid var(--border); }
+  </style>
+</head>
+<body>
+  <div class="top-bar"></div>
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="back-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        返回书签站
+      </a>
+      <span class="site-name">| 真一格书签</span>
+    </div>
+  </header>
+  <div class="container">
+<h1>AI 大模型成长计划（改进版·30 天）</h1>
+<blockquote>📅 <strong>适用人群</strong>：有完整深度学习项目经验（训练过 CNN/RNN 等模型）、有 Python 编程基础、有可用 GPU（至少 6GB 显存）的开发者</blockquote>
+<blockquote></blockquote>
+<blockquote>⚠️ <strong>新手提示</strong>：如果你是从零开始，建议将计划延长至 <strong>60 天</strong>，每天减少任务量，切勿强行追赶进度——理解比完成更重要。</blockquote>
+<blockquote></blockquote>
+<blockquote>🎯 <strong>目标</strong>：从已有深度学习基础出发，系统掌握大模型核心技术与工程能力</blockquote>
+<blockquote></blockquote>
+<blockquote>🖥️ <strong>硬件要求</strong>：至少 1 张 6GB 以上显存 GPU（若无 GPU，部分任务可用 Google Colab 免费 T4/GPU）</blockquote>
+<hr>
+<h2>📋 学习前自检清单</h2>
+<p>在开始之前，确认以下知识点你已经掌握：</p>
+<div class="table-wrap"><table>
+<thead><tr><th>自检项目</th><th>达标标准</th><th>不会时的补充资源</th></tr></thead>
+<tbody>
+<tr><td>Python 面向对象</td><td>能写一个带 <code>__init__</code> 和方法的类</td><td><a href="https://www.runoob.com/python/python-object.html">菜鸟教程 OOP</a></td></tr>
+<tr><td>NumPy</td><td>理解数组形状、广播、矩阵乘法</td><td><a href="https://numpy.org/doc/stable/user/quickstart.html">NumPy 快速入门</a></td></tr>
+<tr><td>Pandas</td><td>能读 CSV、做 groupby、merge</td><td><a href="https://pandas.pydata.org/docs/getting_started/intro_tutorials/">Pandas 官方教程</a></td></tr>
+<tr><td>PyTorch 基础</td><td>能用 <code>nn.Module</code> 写一个网络并训练</td><td><a href="https://pytorch.org/tutorials/beginner/deep_learning_60min_blitz.html">PyTorch 官方60分钟入门</a></td></tr>
+<tr><td>反向传播</td><td>能推导单层网络的梯度</td><td><a href="https://www.3blue1brown.com/topics/neural-networks">3Blue1Brown 视频</a></td></tr>
+<tr><td>过拟合/正则化</td><td>理解 L1/L2、Dropout、Early Stopping</td><td>吴恩达 ML 课程相关章节</td></tr>
+</tbody></table></div>
+<p><strong>如果超过 3 项不达标</strong>：建议先花 1-2 周补充基础，不要强行开始 Day 1。</p>
+<hr>
+<h2>📚 学习资源总览</h2>
+<h3>必读论文（按重要性排序）</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>优先级</th><th>论文</th><th>何时读</th><th>建议</th></tr></thead>
+<tbody>
+<tr><td>⭐⭐⭐</td><td>Attention Is All You Need</td><td>Day 8-9</td><td><strong>必读</strong>，配合 The Illustrated Transformer 理解</td></tr>
+<tr><td>⭐⭐⭐</td><td>BERT: Pre-training of Deep Bidirectional</td><td>Day 12</td><td>必读，理解预训练范式</td></tr>
+<tr><td>⭐⭐</td><td>GPT-3: Language Models are Few-Shot Learners</td><td>Day 13</td><td>精度即可，不要求全部推导</td></tr>
+<tr><td>⭐⭐</td><td>LoRA: Low-Rank Adaptation of Large Language Models</td><td>Day 17</td><td>工程必读，配合代码理解</td></tr>
+<tr><td>⭐⭐</td><td>RLHF (InstructGPT)</td><td>Day 25</td><td>了解原理即可，不要求实现</td></tr>
+<tr><td>⭐</td><td>LLaMA: Open and Efficient Foundation Language Models</td><td>任意时间</td><td>了解开源模型生态</td></tr>
+<tr><td>⭐</td><td>RAG 综述</td><td>Day 20</td><td>了解架构即可</td></tr>
+</tbody></table></div>
+<h3>推荐课程</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>课程</th><th>时长</th><th>适用阶段</th><th>备注</th></tr></thead>
+<tbody>
+<tr><td><a href="https://www.youtube.com/playlist?list=PLoROMvodv4rOhcuXMZkNm7j3fVwBBY42z">Stanford CS224N</a></td><td>~20小时</td><td>Day 8-14</td><td>Transformer 部分重点看</td></tr>
+<tr><td><a href="https://www.youtube.com/playlist?list=PLJV_el3uVTsODxQFgzMzPLa16h6B8kWM_">李宏毅机器学习</a></td><td>~30小时</td><td>Day 1-6 辅助</td><td>中文讲解，适合复习</td></tr>
+<tr><td><a href="https://huggingface.co/learn">Hugging Face Course</a></td><td>~10小时</td><td>Day 11-21</td><td>工程实践必做</td></tr>
+<tr><td><a href="https://www.3blue1brown.com/topics/neural-networks">3Blue1Brown 神经网络</a></td><td>~4小时</td><td>Day 3</td><td>直观理解反向传播</td></tr>
+</tbody></table></div>
+<h3>实践平台</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>平台</th><th>用途</th><th>显存</th><th>备注</th></tr></thead>
+<tbody>
+<tr><td>Google Colab</td><td>Day 1-14 所有实验</td><td>T4 15GB 免费</td><td>主力平台，无本地 GPU 时用</td></tr>
+<tr><td>Kaggle Notebooks</td><td>备选</td><td>P100 16GB 免费</td><td>竞赛数据集丰富</td></tr>
+<tr><td>本地 GPU</td><td>Day 15-30 训练任务</td><td>≥6GB</td><td>有则更好，无则用 Colab</td></tr>
+<tr><td>Modal / RunPod</td><td>Day 15-21 训练任务</td><td>按需付费</td><td>无本地 GPU 时的生产训练方案</td></tr>
+</tbody></table></div>
+<hr>
+<h2>📅 第 1 周：基础夯实（Day 1-7）</h2>
+<blockquote>⚠️ <strong>本周重点</strong>：不要赶进度。PyTorch 不熟练会在后面付出代价。确保每个实验都能独立完成。</blockquote>
+<h3>Day 1 - 环境搭建与工具链</h3>
+<p><strong>主题</strong>：统一开发环境</p>
+<p><strong>预计时间</strong>：3-4 小时</p>
+<p><strong>难度</strong>：🟢 入门</p>
+<p><strong>前置要求</strong>：</p>
+<div class="list-item"><span class="bullet">&#8226;</span>GPU 驱动已安装（<code>nvidia-smi</code> 能看到显卡）</div>
+<div class="list-item"><span class="bullet">&#8226;</span>Python 3.10+ 已安装</div>
+<p><strong>学习内容</strong>：</p>
+<div class="task task-todo"><span class="check">&#9744;</span>安装 CUDA 11.8+ / PyTorch 2.0+（按 <a href="https://pytorch.org/get-started/locally/">官网命令</a> 安装）</div>
+<div class="task task-todo"><span class="check">&#9744;</span>配置 conda 或 venv 虚拟环境</div>
+<div class="task task-todo"><span class="check">&#9744;</span>安装 Jupyter Lab 或配置 VS Code Python 插件</div>
+<div class="task task-todo"><span class="check">&#9744;</span>安装 Git 配置 SSH key（用于克隆 HF / GitHub 代码）</div>
+<div class="task task-todo"><span class="check">&#9744;</span>注册 Hugging Face 账号并获取 access token</div>
+<p><strong>实践任务（必须完成）</strong>：</p>
+<div class="code-block code-bash"><pre><code># 验证 PyTorch + CUDA
+python -c "import torch; print(torch.cuda.is_available())"  # 应输出 True
+python -c "import torch; print(torch.cuda.get_device_name(0))"  # 应输出显卡型号</code></pre></div>
+<p><strong>每日打卡</strong>：</p>
+<div class="code-block code-markdown"><pre><code>- [ ] PyTorch + CUDA 验证成功
+- [ ] Jupyter Lab / VS Code 能运行代码
+- [ ] Hugging Face token 获取成功</code></pre></div>
+<hr>
+<h3>Day 2 - PyTorch 核心操作</h3>
+<p><strong>主题</strong>：张量操作与自动求导</p>
+<p><strong>预计时间</strong>：4-5 小时</p>
+<p><strong>难度</strong>：🟡 基础</p>
+<p><strong>学习内容</strong>：</p>
+<div class="task task-todo"><span class="check">&#9744;</span><code>torch.tensor</code> / <code>torch.randn</code> / <code>torch.zeros</code> 创建张量</div>
+<div class="task task-todo"><span class="check">&#9744;</span>shape、view、squeeze、unsqueeze、transpose 操作</div>
+<div class="task task-todo"><span class="check">&#9744;</span>矩阵乘法 <code>@</code> / <code>torch.mm</code> / <code>torch.matmul</code></div>
+<div class="task task-todo"><span class="check">&#9744;</span>GPU 迁移：<code>tensor.to("cuda")</code> / <code>.cuda()</code></div>
+<div class="task task-todo"><span class="check">&#9744;</span><code>autograd</code>：理解 <code>requires_grad=True</code>、<code>.backward()</code>、<code>.grad</code></div>
+<p><strong>实践任务</strong>：</p>
+<div class="code-block code-python"><pre><code># 1. 实现一个三层神经网络的 forward + backward
+# 2. 对比 CPU 和 GPU 计算速度
+# 3. 用 autograd 手动验证一个非线性函数的梯度（和解析解对比）</code></pre></div>
+<p><strong>避坑</strong>：</p>
+<blockquote>⚠️ <code>.backward()</code> 前记得 <code>.zero_grad()</code>，否则梯度会累加（经典 bug）</blockquote>
+<blockquote>⚠️ GPU tensor 不能直接 print，会崩溃，用 <code>.cpu()</code> 转到 CPU 再看</blockquote>
+<hr>
+<h3>Day 3 - nn.Module 与训练循环</h3>
+<p><strong>主题</strong>：标准化模型写法</p>
+<p><strong>预计时间</strong>：4-5 小时</p>
+<p><strong>难度</strong>：🟡 基础</p>
+<p><strong>学习内容</strong>：</p>
+<div class="task task-todo"><span class="check">&#9744;</span><code>nn.Module</code> 的正确使用：<code>__init__</code> + <code>forward</code></div>
+<div class="task task-todo"><span class="check">&#9744;</span>常用层：<code>nn.Linear</code>、<code>nn.Conv2d</code>、<code>nn.ReLU</code>、<code>nn.Dropout</code>、<code>nn.CrossEntropyLoss</code></div>
+<div class="task task-todo"><span class="check">&#9744;</span><code>nn.DataLoader</code>：批加载、数据 shuffle、pin_memory</div>
+<div class="task task-todo"><span class="check">&#9744;</span>训练循环写法：前向 → 损失 → 反向 → 优化器步进</div>
+<div class="task task-todo"><span class="check">&#9744;</span>模型保存与加载：<code>torch.save(model.state_dict())</code> / <code>load_state_dict</code></div>
+<p><strong>实践任务</strong>：</p>
+<div class="code-block code-python"><pre><code># MNIST 分类（必须完成）
+# 1. 用 nn.DataLoader 加载 MNIST
+# 2. 自己写训练循环（不用 fit() 等高级 API）
+# 3. 记录 train_loss 和 val_accuracy，绘制曲线
+# 4. 保存最优模型</code></pre></div>
+<p><strong>每日打卡</strong>：</p>
+<div class="code-block code-markdown"><pre><code>- [ ] MNIST 训练循环能跑通
+- [ ] 验证集准确率达到 95%+（2层 MLP）或 98%+（简单 CNN）
+- [ ] 模型能正确保存和加载</code></pre></div>
+<hr>
+<h3>Day 4 - 经典 CNN 与迁移学习</h3>
+<p><strong>主题</strong>：图像任务基础</p>
+<p><strong>预计时间</strong>：4-5 小时</p>
+<p><strong>难度</strong>：🟡 基础</p>
+<p><strong>学习内容</strong>：</p>
+<div class="task task-todo"><span class="check">&#9744;</span>卷积层、池化层的工作原理（手动算一遍）</div>
+<div class="task task-todo"><span class="check">&#9744;</span>经典架构：LeNet → AlexNet → VGG → ResNet（了解设计演变）</div>
+<div class="task task-todo"><span class="check">&#9744;</span>ResNet 的 Skip Connection 为什么有效（梯度流角度理解）</div>
+<div class="task task-todo"><span class="check">&#9744;</span>迁移学习：冻结 backbone / 微调最后几层 / 全量微调</div>
+<p><strong>实践任务</strong>：</p>
+<div class="code-block code-python"><pre><code># 猫狗二分类（使用预训练 ResNet，必须完成）
+# 1. 从 torchvision 加载预训练 ResNet18
+# 2. 替换最后的全连接层（输出改为 2）
+# 3. 冻结 backbone，只训练最后一层
+# 4. 在猫狗数据集上微调，记录准确率
+# 数据集：https://www.kaggle.com/datasets/lazycoder/hot-dog-not-hot-dog
+# Kaggle 上也有 cats_vs_dogs 数据集</code></pre></div>
+<p><strong>硬件</strong>：若无 GPU，用 Colab T4，大约 30 分钟能跑完。</p>
+<hr>
+<h3>Day 5 - RNN / LSTM 与序列建模</h3>
+<p><strong>主题</strong>：文本序列处理</p>
+<p><strong>预计时间</strong>：4-5 小时</p>
+<p><strong>难度</strong>：🟡 基础</p>
+<p><strong>学习内容</strong>：</p>
+<div class="task task-todo"><span class="check">&#9744;</span>RNN 的前向计算与梯度消失问题</div>
+<div class="task task-todo"><span class="check">&#9744;</span>LSTM 的门机制（输入门/遗忘门/输出门）</div>
+<div class="task task-todo"><span class="check">&#9744;</span><code>nn.LSTM</code> 的多步使用</div>
+<div class="task task-todo"><span class="check">&#9744;</span>文本预处理：词表构建、分词、padding</div>
+<div class="task task-todo"><span class="check">&#9744;</span>词嵌入：<code>nn.Embedding</code></div>
+<p><strong>实践任务</strong>：</p>
+<div class="code-block code-python"><pre><code># IMDb 情感分析（必须完成）
+# 1. 用预训练词向量（GloVe 或随机初始化）
+# 2. 实现 LSTM 分类器
+# 3. 对比单层 LSTM 和双层的表现
+# 4. 用训练好的模型预测几句话的情感</code></pre></div>
+<p><strong>注意</strong>：不要在文本预处理上花太多时间——后面的 tokenizer 会自动处理。</p>
+<hr>
+<h3>Day 6 - 周中实战：完整小项目</h3>
+<p><strong>主题</strong>：从数据到训练到推理的全流程</p>
+<p><strong>预计时间</strong>：5-6 小时</p>
+<p><strong>难度</strong>：🟡 中等</p>
+<p><strong>学习内容</strong>（穿插进行）：</p>
+<div class="task task-todo"><span class="check">&#9744;</span>数据集下载与划分（train/val/test）</div>
+<div class="task task-todo"><span class="check">&#9744;</span><code>torch.utils.data.Dataset</code> 自定义数据集写法</div>
+<div class="task task-todo"><span class="check">&#9744;</span>训练日志：tensorboard 或 wandb 记录指标</div>
+<div class="task task-todo"><span class="check">&#9744;</span>Early Stopping 防止过拟合</div>
+<div class="task task-todo"><span class="check">&#9744;</span>学习率调度：<code>torch.optim.lr_scheduler</code></div>
+<p><strong>实践任务（选一个完成）</strong>：</p>
+<div class="code-block"><pre><code>✅ 推荐完成：CIFAR-10 图像分类（ResNet18，从头训练）
+  - 不用预训练，完整走一遍数据增强→训练→调参→评估流程
+  
+✅ 备选：IMDB 情感分类（LSTM 版本，完整训练日志）</code></pre></div>
+<p><strong>里程碑检查</strong>：</p>
+<div class="code-block code-markdown"><pre><code>- [ ] 完整跑完一个数据集的训练+验证+测试
+- [ ] 理解 train/val loss 差距大的原因
+- [ ] 会用 tensorboard 或 wandb 查看曲线</code></pre></div>
+<hr>
+<h3>Day 7 - 第 1 周复习与查漏补缺</h3>
+<p><strong>主题</strong>：整理笔记，确认基础扎实</p>
+<p><strong>预计时间</strong>：3-4 小时</p>
+<p><strong>难度</strong>：🟢 轻松</p>
+<p><strong>必做</strong>：</p>
+<div class="task task-todo"><span class="check">&#9744;</span>整理本周所有代码，分类到 <code>01_basics/</code>、<code>02_cnn/</code>、<code>03_rnn/</code> 等文件夹</div>
+<div class="task task-todo"><span class="check">&#9744;</span>写一篇博客或笔记： PyTorch 训练循环的 5 个关键步骤</div>
+<div class="task task-todo"><span class="check">&#9744;</span>完成自检：能不能独立从头写一个 MNIST 分类器（不看教程）？</div>
+<p><strong>自我评分</strong>（1-5 分）：</p>
+<div class="list-item"><span class="bullet">&#8226;</span>PyTorch 熟练度：___/5</div>
+<div class="list-item"><span class="bullet">&#8226;</span>CNN / 迁移学习理解：___/5</div>
+<div class="list-item"><span class="bullet">&#8226;</span>RNN/LSTM 理解：___/5</div>
+<div class="list-item"><span class="bullet">&#8226;</span>低于 3 分的模块：当晚补到 3 分再继续</div>
+<p><strong>⚠️ 如果本周内容感到吃力</strong>：这是正常信号，不要跳过或硬撑。把 Week 1 延长到 10 天，确保基础打牢。</p>
+<hr>
+<h2>📅 第 2 周：Transformer 与大模型基础（Day 8-14）</h2>
+<blockquote>⚠️ <strong>本周是最关键的一周</strong>。Transformer 的理解深度决定了你后面所有内容的学习效率。不要追求快，要求完全理解。</blockquote>
+<h3>Day 8 - Attention 机制直觉与实现</h3>
+<p><strong>主题</strong>：从零理解 Attention</p>
+<p><strong>预计时间</strong>：5-6 小时（含论文精读）</p>
+<p><strong>难度</strong>：🟠 中等</p>
+<p><strong>前置</strong>：</p>
+<div class="list-item"><span class="bullet">&#8226;</span>重读 Attention Is All You Need 论文（30 分钟，不要求全懂）</div>
+<div class="list-item"><span class="bullet">&#8226;</span>看 <a href="https://jalammar.github.io/illustrated-transformer/">The Illustrated Transformer</a>（必读）</div>
+<p><strong>学习内容</strong>：</p>
+<div class="task task-todo"><span class="check">&#9744;</span>Attention 的核心思想：Query-Key-Value</div>
+<div class="task task-todo"><span class="check">&#9744;</span>Scaled Dot-Product Attention：为什么要除以 √d_k</div>
+<div class="task task-todo"><span class="check">&#9744;</span>Multi-Head Attention：多个头的作用</div>
+<div class="task task-todo"><span class="check">&#9744;</span>Self-Attention vs Cross-Attention</div>
+<p><strong>实践任务</strong>：</p>
+<div class="code-block code-python"><pre><code># 1. 从零实现 Scaled Dot-Product Attention（必须完成）
+def scaled_dot_product_attention(Q, K, V, mask=None):
+    # Q, K, V: (batch, seq_len, d_k)
+    # 实现公式：softmax(QK^T / √d_k) V
+    ...
+
+# 2. 实现 Multi-Head Attention
+class MultiHeadAttention(nn.Module):
+    # 需要理解：为什么要分多个头？头之间是独立学习的吗？
+
+# 3. 用注意力可视化验证：输入一句话，看哪个词对哪个词的注意力最高</code></pre></div>
+<p><strong>里程碑</strong>：</p>
+<div class="code-block code-markdown"><pre><code>- [ ] 能从零手写 Attention，不调用 torch.nn.MultiheadAttention
+- [ ] 能解释：为什么 Q、K、V 要用不同的权重矩阵？
+- [ ] 能可视化一句话中词与词之间的 Attention 权重</code></pre></div>
+<hr>
+<h3>Day 9 - Transformer Encoder 完整实现</h3>
+<p><strong>主题</strong>：Encoder 架构</p>
+<p><strong>预计时间</strong>：5-6 小时</p>
+<p><strong>难度</strong>：🟠 中等偏难</p>
+<p><strong>前置</strong>：</p>
+<div class="list-item"><span class="bullet">&#8226;</span>重读 Attention 论文第 3-5 节</div>
+<div class="list-item"><span class="bullet">&#8226;</span>读 <a href="https://nlp.seas.harvard.edu/2018/04/03/attention.html">Harvard Annotated Transformer</a>（配合代码理解）</div>
+<p><strong>学习内容</strong>：</p>
+<div class="task task-todo"><span class="check">&#9744;</span>Positional Encoding：为什么需要位置编码？sin/cos 公式的直觉</div>
+<div class="task task-todo"><span class="check">&#9744;</span>Encoder Layer：Multi-Head Attention → Add & Norm → FFN → Add & Norm</div>
+<div class="task task-todo"><span class="check">&#9744;</span>Layer Normalization vs Batch Normalization（LN 更适合 Transformer）</div>
+<div class="task task-todo"><span class="check">&#9744;</span>残差连接的作用</div>
+<p><strong>实践任务</strong>：</p>
+<div class="code-block code-python"><pre><code># 从零实现 Transformer Encoder（必须完成）
+class PositionalEncoding(nn.Module):
+    # 实现 sin/cos 位置编码
+
+class EncoderLayer(nn.Module):
+    # MultiHeadAttention + AddNorm + FFN + AddNorm
+
+class TransformerEncoder(nn.Module):
+    # 堆叠 N 个 EncoderLayer
+
+# 用它做文本分类（用 IMDB 数据集），验证能收敛</code></pre></div>
+<hr>
+<h3>Day 10 - Transformer Decoder 与生成</h3>
+<p><strong>主题</strong>：Decoder 架构与文本生成</p>
+<p><strong>预计时间</strong>：5-6 小时</p>
+<p><strong>难度</strong>：🟠 中等偏难</p>
+<p><strong>学习内容</strong>：</p>
+<div class="task task-todo"><span class="check">&#9744;</span>Decoder 的 Masked Multi-Head Attention（为什么要 mask future tokens）</div>
+<div class="task task-todo"><span class="check">&#9744;</span>Encoder-Decoder Attention：Cross Attention 的作用</div>
+<div class="task task-todo"><span class="check">&#9744;</span>自回归生成：greedy decoding vs beam search</div>
+<div class="task task-todo"><span class="check">&#9744;</span>Top-k / Top-p（Temperature）采样</div>
+<p><strong>实践任务</strong>：</p>
+<div class="code-block code-python"><pre><code># 1. 实现 Masked Attention（关键：理解下三角 mask 矩阵）
+# 2. 实现一个简单 Decoder-only 模型（GPT 的迷你版）
+# 3. 用贪婪解码生成短文本（不用调到大模型，几层就够了）
+# 4. 对比不同 temperature 的生成效果</code></pre></div>
+<p><strong>里程碑</strong>：</p>
+<div class="code-block code-markdown"><pre><code>- [ ] 理解 Masked Attention 的下三角 mask 实现
+- [ ] 能解释 Cross Attention 在 Encoder-Decoder 结构中的作用
+- [ ] 能从零实现一个能生成文本的小模型</code></pre></div>
+<hr>
+<h3>Day 11 - Tokenizer 与文本预处理</h3>
+<p><strong>主题</strong>：从词到数字</p>
+<p><strong>预计时间</strong>：3-4 小时</p>
+<p><strong>难度</strong>：🟢 基础（但很重要）</p>
+<p><strong>学习内容</strong>：</p>
+<div class="task task-todo"><span class="check">&#9744;</span>词级 tokenization 的问题（OOV、词表过大）</div>
+<div class="task task-todo"><span class="check">&#9744;</span>BPE / WordPiece / SentencePiece 的原理</div>
+<div class="task task-todo"><span class="check">&#9744;</span>Hugging Face <code>tokenizers</code> 库使用</div>
+<div class="task task-todo"><span class="check">&#9744;</span>子词切分可视化：<code>tokenizer.tokenize("unhappiness")</code></div>
+<p><strong>实践任务</strong>：</p>
+<div class="code-block code-python"><pre><code># 1. 使用 Hugging Face 分词器处理文本
+from transformers import AutoTokenizer
+tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
+tokens = tokenizer("I can't believe it's raining!")
+print(tokens)
+
+# 2. 对比不同模型的分词结果（bert-base-uncased vs gpt2）
+# 3. 统计一个文本语料的词表大小和平均长度</code></pre></div>
+<p><strong>这个内容偏简单，但 tokenizer 的理解直接影响后面 RAG 和 Agent 的开发。</strong></p>
+<hr>
+<h3>Day 12 - BERT 与预训练范式</h3>
+<p><strong>主题</strong>：Encoder-only 模型</p>
+<p><strong>预计时间</strong>：4-5 小时</p>
+<p><strong>难度</strong>：🟠 中等</p>
+<p><strong>前置</strong>：重读 BERT 论文</p>
+<p><strong>学习内容</strong>：</p>
+<div class="task task-todo"><span class="check">&#9744;</span>MLM（Masked Language Modeling）：随机 mask token 预测</div>
+<div class="task task-todo"><span class="check">&#9744;</span>NSP（Next Sentence Prediction）：判断两句话是否连续（已被 RoBERTa 证明效果有限）</div>
+<div class="task task-todo"><span class="check">&#9744;</span>BERT 的应用：分类、NER、问答</div>
+<div class="task task-todo"><span class="check">&#9744;</span>RoBERTa、ALBERT、DeBERTa 改进点</div>
+<p><strong>实践任务</strong>：</p>
+<div class="code-block code-python"><pre><code># 1. 使用 Hugging Face Transformers 加载 BERT
+from transformers import AutoModelForSequenceClassification, AutoTokenizer
+model = AutoModelForSequenceClassification.from_pretrained("bert-base-uncased", num_labels=2)
+
+# 2. 在 IMDB 数据集上微调（用 Hugging Face Trainer）
+# 3. 用微调后的模型预测新句子的情感
+# 4. 理解 num_labels 参数的作用</code></pre></div>
+<p><strong>里程碑</strong>：</p>
+<div class="code-block code-markdown"><pre><code>- [ ] 理解 MLM 的训练方式，能解释为什么不直接预测下一个词
+- [ ] 能在 IMDB 上微调 BERT 并达到 92%+ 准确率
+- [ ] 能解释 BERT 和 GPT 的核心区别（架构 + 训练方式）</code></pre></div>
+<hr>
+<h3>Day 13 - GPT 与自回归生成</h3>
+<p><strong>主题</strong>：Decoder-only 模型</p>
+<p><strong>预计时间</strong>：4-5 小时</p>
+<p><strong>难度</strong>：🟠 中等</p>
+<p><strong>前置</strong>：重读 GPT-3 论文（精度即可）</p>
+<p><strong>学习内容</strong>：</p>
+<div class="task task-todo"><span class="check">&#9744;</span>GPT 系列演进：GPT-1 → GPT-2 → GPT-3 → GPT-4</div>
+<div class="task task-todo"><span class="check">&#9744;</span>自回归生成与 Teacher Forcing</div>
+<div class="task task-todo"><span class="check">&#9744;</span>零样本 / 少样本学习的原理</div>
+<div class="task task-todo"><span class="check">&#9744;</span>Prompt Engineering 基础：Instruction、Few-shot、Chain-of-Thought</div>
+<p><strong>实践任务</strong>：</p>
+<div class="code-block code-python"><pre><code># 1. 使用 GPT-2 生成文本（体验 API 级效果）
+from transformers import pipeline
+generator = pipeline("text-generation", model="gpt2")
+result = generator("Once upon a time in a distant galaxy", max_length=50)
+print(result)
+
+# 2. 设计不同的 prompt，对比生成效果
+# 3. 用 LM Evaluation Harness 评估 GPT-2 在几个标准任务上的表现
+#    git clone https://github.com/EleutherAI/lm-evaluation-harness
+#    python -m lm_eval --model gpt2 --tasks mmlu --limit 10</code></pre></div>
+<p><strong>里程碑</strong>：</p>
+<div class="code-block code-markdown"><pre><code>- [ ] 能解释为什么 GPT 是 decoder-only，而 BERT 是 encoder-only
+- [ ] 理解零样本和少样本的区别
+- [ ] 能用 Hugging Face pipeline 调用 GPT-2 生成文本</code></pre></div>
+<hr>
+<h3>Day 14 - 第 2 周复习与综合应用</h3>
+<p><strong>主题</strong>：Transformer 全貌</p>
+<p><strong>预计时间</strong>：4-5 小时</p>
+<p><strong>难度</strong>：🟡 中等</p>
+<p><strong>必做</strong>：</p>
+<div class="task task-todo"><span class="check">&#9744;</span>画一张 Transformer 架构图（手画或代码生成），标注所有关键组件</div>
+<div class="task task-todo"><span class="check">&#9744;</span>整理笔记：Attention → Encoder → Decoder → BERT/GPT 的演进逻辑</div>
+<div class="task task-todo"><span class="check">&#9744;</span>完成一个综合任务：</div>
+<p><strong>综合任务（选一，必须完成）</strong>：</p>
+<div class="code-block"><pre><code>✅ 机器翻译（Transformer）：使用 opus-mt-en-zh 模型，演示英译中效果
+   （使用 Hugging Face pipeline，代码量不大，主要是理解流程）
+   
+✅ 问答系统（BERT）：在 SQuAD 数据集上运行 BERT 问答模型
+   （理解 span extraction 方式的问答）</code></pre></div>
+<p><strong>⚠️ 第 2 周完成标准</strong>：</p>
+<div class="list-item"><span class="bullet">&#8226;</span>能从零实现 Multi-Head Attention ✅</div>
+<div class="list-item"><span class="bullet">&#8226;</span>能从零实现 Positional Encoding ✅</div>
+<div class="list-item"><span class="bullet">&#8226;</span>能解释 BERT 和 GPT 的区别 ✅</div>
+<div class="list-item"><span class="bullet">&#8226;</span>能用 Hugging Face 微调模型 ✅</div>
+<hr>
+<h2>📅 第 3 周：大模型核心技术（Day 15-21）</h2>
+<blockquote>⚠️ <strong>本周内容开始接近大模型工程实践</strong>。Day 15-18 建议用小模型（如 GPT-2、LLaMA-2-7B）做实验，不要尝试从头预训练。</blockquote>
+<h3>Day 15 - 大模型训练基础（数据 + 流程）</h3>
+<p><strong>主题</strong>：理解训练过程</p>
+<p><strong>预计时间</strong>：4-5 小时</p>
+<p><strong>难度</strong>：🟡 基础（概念层面）</p>
+<p><strong>前置</strong>：无 GPU 可跳过实操，看懂流程即可</p>
+<p><strong>学习内容</strong>：</p>
+<div class="task task-todo"><span class="check">&#9744;</span>预训练语料：Common Crawl、The Pile、RedPajama（了解来源）</div>
+<div class="task task-todo"><span class="check">&#9744;</span>数据清洗：去重、过滤低质量、过滤个人信息</div>
+<div class="task task-todo"><span class="check">&#9744;</span>训练流程：Pretrain（MLM/CLM）→ SFT（Supervised Fine-Tuning）</div>
+<div class="task task-todo"><span class="check">&#9744;</span>学习率调度：Cosine Annealing、Warmup</div>
+<div class="task task-todo"><span class="check">&#9744;</span>梯度裁剪：<code>torch.nn.utils.clip_grad_norm_</code></div>
+<p><strong>实践任务</strong>：</p>
+<div class="code-block code-python"><pre><code># 1. 了解一个公开数据集：The Stack（BigCode）
+#    from datasets import load_dataset
+#    ds = load_dataset("bigcode/the-stack", data_dir="data/python", split="train[:1%]")
+#    print(ds[0]['content'][:200])
+
+# 2. 用小数据集（10MB 代码）训练 GPT-2 若干步，观察 loss 下降
+#    （目的是理解训练 loop，不要求训出好模型）
+#    - 资源：Google Colab T4 足够
+
+# 3. 理解 Hugging Face Trainer 的基本用法</code></pre></div>
+<p><strong>重要说明</strong>：</p>
+<blockquote>⚠️ <strong>不要尝试从头预训练大模型</strong>（GPT-2 以上）。从头预训练需要数十张 A100 和数周时间，30 天计划里不可能完成。Day 15 的目标是<strong>理解训练流程</strong>，用小模型跑通 pipeline 即可。</blockquote>
+<hr>
+<h3>Day 16 - ⭐ 参数高效微调（PEFT）</h3>
+<p><strong>主题</strong>：LoRA 是本周最重要的技能</p>
+<p><strong>预计时间</strong>：5-6 小时</p>
+<p><strong>难度</strong>：🟠 中等</p>
+<p><strong>学习内容</strong>：</p>
+<div class="task task-todo"><span class="check">&#9744;</span>全量微调的问题：显存占用大、灾难遗忘</div>
+<div class="task task-todo"><span class="check">&#9744;</span>LoRA 原理：低秩分解（A @ B 替代全量权重更新）</div>
+<div class="task task-todo"><span class="check">&#9744;</span>LoRA 的超参数：<code>r</code>、<code>alpha</code>、<code>target_modules</code></div>
+<div class="task task-todo"><span class="check">&#9744;</span>QLoRA：4-bit 量化 + LoRA 的组合</div>
+<p><strong>实践任务（必须完成）</strong>：</p>
+<div class="code-block code-python"><pre><code># 1. 使用 PEFT 库对 LLaMA-2-7B 应用 LoRA
+#    资源：使用 Colab A100（需要申请或使用 RunPod）
+#    模型：meta-llama/Llama-2-7b-hf + 4-bit 量化
+
+from transformers import BitsAndBytesConfig
+import torch
+quantization_config = BitsAndBytesConfig(
+    load_in_4bit=True,
+    bnb_4bit_compute_dtype=torch.float16,
+)
+model = AutoModelForCausalLM.from_pretrained(
+    "meta-llama/Llama-2-7b-hf",
+    quantization_config=quantization_config,
+)
+
+# 2. 应用 LoRA 配置
+from peft import LoraConfig, get_peft_model
+lora_config = LoraConfig(r=8, lora_alpha=16, target_modules=["q_proj", "v_proj"])
+model = get_peft_model(model, lora_config)
+model.print_trainable_parameters()
+# 应该看到：可训练参数 < 1%
+
+# 3. 在自定义数据集上微调（alpaca 格式）</code></pre></div>
+<p><strong>里程碑</strong>：</p>
+<div class="code-block code-markdown"><pre><code>- [ ] 能解释 LoRA 为什么能大幅减少可训练参数
+- [ ] 能在 7B 模型上成功应用 LoRA（不要求训完，跑了 loss 就达标）
+- [ ] 理解 QLoRA 和普通 LoRA 的区别</code></pre></div>
+<p><strong>备选方案（无 A100 GPU）</strong>：</p>
+<div class="code-block code-python"><pre><code># 使用 GPT-2（124M 参数）代替 LLaMA
+from transformers import AutoModelForCausalLM, AutoTokenizer
+model = AutoModelForCausalLM.from_pretrained("gpt2")
+# LoRA 应用方法完全相同，只是模型更小，Colab T4 可跑</code></pre></div>
+<hr>
+<h3>Day 17 - 模型量化：让大模型跑在消费级 GPU</h3>
+<p><strong>主题</strong>：INT8 / INT4 量化</p>
+<p><strong>预计时间</strong>：4-5 小时</p>
+<p><strong>难度</strong>：🟡 基础</p>
+<p><strong>学习内容</strong>：</p>
+<div class="task task-todo"><span class="check">&#9744;</span>量化原理：FP16 → INT8 → INT4 的精度损失</div>
+<div class="task task-todo"><span class="check">&#9744;</span>GGUF 格式（ llama.cpp 的量化格式）</div>
+<div class="task task-todo"><span class="check">&#9744;</span>GPTQ / AWQ 量化方法</div>
+<div class="task task-todo"><span class="check">&#9744;</span>量化对推理速度的影响（实测）</div>
+<p><strong>实践任务</strong>：</p>
+<div class="code-block code-python"><pre><code># 1. 使用 llama.cpp 将 LLaMA-2-7B 量化到 Q4_K_M
+#    资源：需要 8GB+ 内存，CPU 可跑（慢）
+#    参考：https://github.com/ggerganov/llama.cpp/blob/master/README.md#prepare-data-and-run
+
+# 2. 用 Hugging Face 的 GPTQ 量化（一条命令）
+#    from transformers import AutoModelForCausalLM
+#    quantized_model = AutoModelForCausalLM.from_pretrained(
+#        "meta-llama/Llama-2-7b-hf",
+#        load_in_4bit=True  # 等效 QLoRA
+#    )
+
+# 3. 对比量化前后模型在相同 prompt 下的输出差异（定性即可）</code></pre></div>
+<hr>
+<h3>Day 18 - RAG 检索增强生成</h3>
+<p><strong>主题</strong>：知识增强实战</p>
+<p><strong>预计时间</strong>：5-6 小时</p>
+<p><strong>难度</strong>：🟠 中等</p>
+<p><strong>学习内容</strong>：</p>
+<div class="task task-todo"><span class="check">&#9744;</span>RAG 架构：检索（Retriever）→ 增强（Augment）→ 生成（Generator）</div>
+<div class="task task-todo"><span class="check">&#9744;</span>Embedding 模型：text2vec、bge、m3e（中文效果好）</div>
+<div class="task task-todo"><span class="check">&#9744;</span>向量数据库：ChromaDB（本地轻量）、FAISS（生产级）</div>
+<div class="task task-todo"><span class="check">&#9744;</span>检索策略：Top-K、相似度阈值、重排序</div>
+<div class="task task-todo"><span class="check">&#9744;</span>RAG 评估：RAGAS、Trulens</div>
+<p><strong>实践任务（必须完成）</strong>：</p>
+<div class="code-block code-python"><pre><code># 构建一个本地知识库问答系统
+# 1. 准备文档（可以是 PDF、TXT、Markdown）
+#    from langchain.document_loaders import DirectoryLoader
+
+# 2. 文本分割（chunk_size=500, overlap=50）
+#    from langchain.text_splitter import RecursiveCharacterTextSplitter
+
+# 3. 生成向量并存入 ChromaDB
+#    from langchain.vectorstores import Chroma
+#    from langchain.embeddings import HuggingFaceEmbeddings
+
+# 4. 构建 RAG chain
+#    from langchain.chat_models import ChatOpenAI  # 或用 vLLM + HF
+#    from langchain.chains import RetrievalQA
+
+# 5. 提问并对比：直接问 vs 用 RAG 问的答案差异</code></pre></div>
+<p><strong>里程碑</strong>：</p>
+<div class="code-block code-markdown"><pre><code>- [ ] 成功构建一个本地知识库 RAG 系统
+- [ ] 能解释 chunk_size 太大/太小分别有什么问题
+- [ ] 能对比：同样问题，RAG 回答 vs 直接 LLM 回答的差异</code></pre></div>
+<hr>
+<h3>Day 19 - Agent 基础：工具调用与规划</h3>
+<p><strong>主题</strong>：让大模型使用工具</p>
+<p><strong>预计时间</strong>：5-6 小时</p>
+<p><strong>难度</strong>：🟠 中等偏难</p>
+<p><strong>学习内容</strong>：</p>
+<div class="task task-todo"><span class="check">&#9744;</span>ReAct 范式：Thought → Action → Observation 循环</div>
+<div class="task task-todo"><span class="check">&#9744;</span>Tool Calling：OpenAI Function Calling / Claude Tool Use</div>
+<div class="task task-todo"><span class="check">&#9744;</span>简单的 Tool 定义与调用</div>
+<div class="task task-todo"><span class="check">&#9744;</span>LangChain Agent 的几种类型（ReAct、Plan-and-Execute）</div>
+<div class="task task-todo"><span class="check">&#9744;</span>多步推理与执行</div>
+<p><strong>实践任务</strong>：</p>
+<div class="code-block code-python"><pre><code># 实现一个能查天气、搜新闻的 AI 助手
+# 1. 定义工具：get_weather(city)、search_news(query)
+# 2. 用 LangChain ReAct Agent 串联
+# 3. 提问："北京今天天气怎么样？" → 模型自动调用 get_weather("北京")
+# 4. 提问："最近有什么 AI 新闻？" → 模型自动调用 search_news
+
+# 备选：用 OpenAI Assistant API（更简单）</code></pre></div>
+<hr>
+<h3>Day 20 - Prompt Engineering 进阶</h3>
+<p><strong>主题</strong>：让模型更好用的技巧</p>
+<p><strong>预计时间</strong>：3-4 小时</p>
+<p><strong>难度</strong>：🟢 基础</p>
+<p><strong>学习内容</strong>：</p>
+<div class="task task-todo"><span class="check">&#9744;</span>Zero-shot / Few-shot 的正确用法</div>
+<div class="task task-todo"><span class="check">&#9744;</span>Chain-of-Thought（CoT）：让模型一步步思考</div>
+<div class="task task-todo"><span class="check">&#9744;</span>Structured Output：强制 JSON 格式</div>
+<div class="task task-todo"><span class="check">&#9744;</span>System Prompt 设计原则</div>
+<div class="task task-todo"><span class="check">&#9744;</span>RAG + Agent 的 Prompt 配合</div>
+<p><strong>实践任务</strong>：</p>
+<div class="code-block code-python"><pre><code># 对比实验（必须完成）
+# 同一个复杂问题，对比以下几种 Prompt 的效果：
+# 1. 直接问
+# 2. Few-shot（给例子）
+# 3. Chain-of-Thought（"Let's think step by step"）
+# 4. Structured Output（JSON schema 约束）</code></pre></div>
+<hr>
+<h3>Day 21 - 第 3 周综合项目</h3>
+<p><strong>主题</strong>：端到端大模型应用</p>
+<p><strong>预计时间</strong>：6-8 小时</p>
+<p><strong>难度</strong>：🟡 中等</p>
+<p><strong>综合项目（选一完成）</strong>：</p>
+<div class="code-block"><pre><code>✅ 方案 A（推荐）：领域知识助手
+  - 加载你自己的专业资料（PDF / 网页）
+  - 构建 RAG pipeline
+  - 支持多轮对话
+  - 部署为网页应用（Gradio 或 Streamlit）
+
+✅ 方案 B：LLaMA 2 微调 + 部署
+  - 用 LoRA 在 alpaca 格式数据上微调
+  - 部署为本地 API 服务（vLLM）
+  - 对比微调前后的效果差异
+
+✅ 方案 C：多模态应用
+  - 使用 LLaVA 模型（视觉-语言）
+  - 上传一张图片，问关于图片的问题</code></pre></div>
+<p><strong>输出要求</strong>：</p>
+<div class="code-block code-markdown"><pre><code>- 项目 GitHub 仓库（含 README 说明）
+- 运行效果截图
+- 项目设计文档（为什么这样设计，有什么改进空间）</code></pre></div>
+<hr>
+<h2>📅 第 4 周：进阶与综合（Day 22-30）</h2>
+<h3>Day 22 - 多模态大模型</h3>
+<p><strong>主题</strong>：视觉-语言模型</p>
+<p><strong>预计时间</strong>：4-5 小时</p>
+<p><strong>难度</strong>：🟠 中等</p>
+<p><strong>学习内容</strong>：</p>
+<div class="task task-todo"><span class="check">&#9744;</span>CLIP：图文对比学习（理解多模态的起点）</div>
+<div class="task task-todo"><span class="check">&#9744;</span>BLIP / LLaVA：图文生成与理解</div>
+<div class="task task-todo"><span class="check">&#9744;</span>GPT-4V / Claude Vision 的能力边界</div>
+<div class="task task-todo"><span class="check">&#9744;</span>多模态 RAG：图文混合检索</div>
+<p><strong>实践任务</strong>：</p>
+<div class="code-block code-python"><pre><code># 使用 LLaVA（推荐）或 CLIP
+# pip install llava
+from llava.model import LlavaProcessor
+# 上传一张图，问它"描述这张图片"
+# 问："图中有几个人？他们在做什么？"
+
+# 或者用 Hugging Face 的 VLM pipeline
+from transformers import pipeline
+vqa = pipeline("vqa", model="microsoft/trocr-base-handwritten")
+result = vqa(image=image, question="What is the text in the image?")</code></pre></div>
+<hr>
+<h3>Day 23 - 模型评估：如何衡量模型好坏</h3>
+<p><strong>主题</strong>：评测方法</p>
+<p><strong>预计时间</strong>：4-5 小时</p>
+<p><strong>难度</strong>：🟡 基础</p>
+<p><strong>学习内容</strong>：</p>
+<div class="task task-todo"><span class="check">&#9744;</span>Perplexity：语言模型的核心指标</div>
+<div class="task task-todo"><span class="check">&#9744;</span>任务指标：BLEU（翻译）、ROUGE（摘要）、F1（分类/NER）</div>
+<div class="task task-todo"><span class="check">&#9744;</span>大模型评测基准：MMLU（通用知识）、GSM8K（数学）、HumanEval（代码）</div>
+<div class="task task-todo"><span class="check">&#9744;</span>自动化评测框架：lm-evaluation-harness</div>
+<p><strong>实践任务</strong>：</p>
+<div class="code-block code-python"><pre><code># 用 lm-evaluation-harness 评估 GPT-2
+# pip install lm-eval
+# lm_eval --model hf \
+#   --model_args pretrained=gpt2 \
+#   --tasks mmlu,hendrycks-test* \
+#   --device cuda:0 \
+#   --limit 5</code></pre></div>
+<hr>
+<h3>Day 24 - ⭐ 大模型安全与对齐（了解原理）</h3>
+<p><strong>主题</strong>：RLHF / DPO</p>
+<p><strong>预计时间</strong>：4-5 小时</p>
+<p><strong>难度</strong>：🟠 中等（概念层面）</p>
+<p><strong>⚠️ 重要说明</strong>：RLHF 的完整实现需要训练环境和大量资源。本日目标改为<strong>理解原理 + 体验已实现的工具</strong>，不要求自己实现 PPO。</p>
+<p><strong>学习内容</strong>：</p>
+<div class="task task-todo"><span class="check">&#9744;</span>为什么需要对齐：能力越强，危害风险越大</div>
+<div class="task task-todo"><span class="check">&#9744;</span>RLHF 三步：SFT → Reward Model → PPO（理解流程即可）</div>
+<div class="task task-todo"><span class="check">&#9744;</span>DPO（Direct Preference Optimization）：简化版对 RLHF</div>
+<div class="task task-todo"><span class="check">&#9744;</span>红队测试与对抗样本</div>
+<p><strong>实践任务</strong>：</p>
+<div class="code-block code-python"><pre><code># 1. 体验 DPO 训练（用已实现的库，不自己写 PPO）
+#    推荐：https://github.com/argmisc/alignment-handbook
+#    这个库做了 TRL（HuggingFace 的 RLHF 库）的封装，跑通示例即可
+
+# 2. 理解 Reward Model 的训练方式：
+#    - 输入：(prompt, chosen_response, rejected_response)
+#    - 输出：chosen 的分数 > rejected 的分数
+
+# 3. 了解一些对齐失败的案例（AI 幻觉、有害输出）</code></pre></div>
+<p><strong>不要求</strong>：</p>
+<div class="list-item"><span class="bullet">&#8226;</span>❌ 从零实现 PPO</div>
+<div class="list-item"><span class="bullet">&#8226;</span>❌ 自己训练 Reward Model</div>
+<div class="list-item"><span class="bullet">&#8226;</span>❌ 完整的 RLHF pipeline</div>
+<hr>
+<h3>Day 25 - 大模型部署与服务化</h3>
+<p><strong>主题</strong>：让模型跑在生产环境</p>
+<p><strong>预计时间</strong>：4-5 小时</p>
+<p><strong>难度</strong>：🟡 基础</p>
+<p><strong>学习内容</strong>：</p>
+<div class="task task-todo"><span class="check">&#9744;</span>vLLM：PagedAttention 实现高吞吐推理</div>
+<div class="task task-todo"><span class="check">&#9744;</span>Text Generation Inference（TGI）：HuggingFace 的推理服务器</div>
+<div class="task task-todo"><span class="check">&#9744;</span>FastAPI 包装模型为 REST API</div>
+<div class="task task-todo"><span class="check">&#9744;</span>流式输出（Server-Sent Events）</div>
+<div class="task task-todo"><span class="check">&#9744;</span>鉴权、限流、成本控制</div>
+<p><strong>实践任务</strong>：</p>
+<div class="code-block code-python"><pre><code># 1. 使用 vLLM 部署 LLaMA-2-7B（需要 GPU）
+#    from vllm import LLM, SamplingParams
+#    llm = LLM(model="meta-llama/Llama-2-7b-hf")
+#    输出 = llm.generate(["Hello, world!"])
+
+# 2. 用 FastAPI 包装一个文本生成接口
+#    - POST /generate 接受 JSON body
+#    - 返回 SSE 流式输出
+
+# 3. 测试并发请求，记录 QPS</code></pre></div>
+<hr>
+<h3>Day 26 - ⭐ 前沿技术调研：选择你的方向</h3>
+<p><strong>主题</strong>：找到深入点</p>
+<p><strong>预计时间</strong>：3-4 小时</p>
+<p><strong>难度</strong>：🟡 轻松（但重要）</p>
+<p><strong>学习内容</strong>（选 2-3 个方向深入了解）：</p>
+<div class="task task-todo"><span class="check">&#9744;</span><strong>MoE（Mixture of Experts）</strong>：Mixtral 8x7B 是怎么做到的</div>
+<div class="task task-todo"><span class="check">&#9744;</span><strong>长上下文</strong>：位置编码改进（RoPE → YaRN → RoPE^2）</div>
+<div class="task task-todo"><span class="check">&#9744;</span><strong>Agent 系统</strong>：AutoGPT / GPT-Engineer / Multi-Agent 架构</div>
+<div class="task task-todo"><span class="check">&#9744;</span><strong>世界模型</strong>：视频生成与物理世界理解（VideoPoet、Sora）</div>
+<div class="task task-todo"><span class="check">&#9744;</span><strong>推理优化</strong>：推测解码、Flash Attention、Continuous Batching</div>
+<p><strong>任务</strong>：</p>
+<div class="code-block code-markdown"><pre><code>- [ ] 选择 1 个最感兴趣的方向
+- [ ] 阅读 2-3 篇相关最新论文（arXiv）
+- [ ] 写一篇调研笔记：这个方向目前最大的挑战是什么？
+- [ ] 找到 3 个开源项目 / GitHub 仓库关注</code></pre></div>
+<hr>
+<h3>Day 27 - 开源项目实践</h3>
+<p><strong>主题</strong>：读代码 + 小贡献</p>
+<p><strong>预计时间</strong>：4-5 小时</p>
+<p><strong>难度</strong>：🟠 中等</p>
+<p><strong>学习内容</strong>：</p>
+<div class="task task-todo"><span class="check">&#9744;</span>如何阅读大型开源项目（Transformers / LangChain / vLLM）</div>
+<div class="task task-todo"><span class="check">&#9744;</span>找 issue：good first issue 标签</div>
+<div class="task task-todo"><span class="check">&#9744;</span>提交 PR 的流程（fork → branch → PR）</div>
+<div class="task task-todo"><span class="check">&#9744;</span>参与 Hugging Face 社区</div>
+<p><strong>实践任务</strong>：</p>
+<div class="code-block code-python"><pre><code># 1. 选一个工具，深入阅读其核心代码（如 transformers/src/transformers/models/llama/）
+# 2. 找到并提交一个文档改进（README 错误、typo、注释不清）
+# 3. 在知乎 / CSDN / 博客园写一篇源码解读文章</code></pre></div>
+<hr>
+<h3>Day 28 - 综合项目：完整作品收尾</h3>
+<p><strong>主题</strong>：打磨并展示</p>
+<p><strong>预计时间</strong>：6-8 小时</p>
+<p><strong>难度</strong>：🟡 中等</p>
+<p><strong>任务</strong>：</p>
+<div class="task task-todo"><span class="check">&#9744;</span>完善 Day 21 的综合项目，增加功能或提升效果</div>
+<div class="task task-todo"><span class="check">&#9744;</span>写完整的 README：项目介绍、安装方法、使用示例</div>
+<div class="task task-todo"><span class="check">&#9744;</span>添加单元测试或演示脚本</div>
+<div class="task task-todo"><span class="check">&#9744;</span>部署上线（Streamlit Share / Vercel / 本地 Ngrok）</div>
+<p><strong>里程碑</strong>：</p>
+<div class="code-block code-markdown"><pre><code>- [ ] 项目能在新环境下从零运行（README 可执行）
+- [ ] 有截图 / 演示视频
+- [ ] 提交到 GitHub，获得第一个 star（哪怕是自己的）</code></pre></div>
+<hr>
+<h3>Day 29 - 30 天总结与反思</h3>
+<p><strong>主题</strong>：整理与规划</p>
+<p><strong>预计时间</strong>：3-4 小时</p>
+<p><strong>难度</strong>：🟢 轻松</p>
+<p><strong>必做清单</strong>：</p>
+<div class="code-block code-markdown"><pre><code>- [ ] 整理 30 天的所有代码、笔记、博客
+- [ ] 回顾：哪些目标完成了？哪些没完成？原因是什么？
+- [ ] 给下一个阶段定目标（研究方向 / 工程方向 / 产品方向）
+- [ ] 建立知识体系图谱：哪些知识点已经掌握，哪些还需要补</code></pre></div>
+<p><strong>30 天成就清单</strong>：</p>
+<div class="code-block code-markdown"><pre><code>从零实现 Transformer：
+  ✅ Scaled Dot-Product Attention
+  ✅ Positional Encoding
+  ✅ Encoder Layer
+  ✅ Decoder Layer
+
+使用 Hugging Face：
+  ✅ BERT 微调（文本分类）
+  ✅ GPT-2 文本生成
+  ✅ LoRA 微调大模型
+  ✅ RAG 知识库问答
+  ✅ Agent 工具调用
+
+工程能力：
+  ✅ 模型部署（vLLM / FastAPI）
+  ✅ 模型量化（QLoRA / llama.cpp）
+  ✅ 模型评估（lm-evaluation-harness）</code></pre></div>
+<hr>
+<h3>Day 30 - 后续学习路线</h3>
+<p><strong>主题</strong>：30 天只是一个开始</p>
+<p><strong>预计时间</strong>：2 小时</p>
+<p><strong>难度</strong>：🟢 轻松</p>
+<p><strong>已掌握的核心能力</strong>：</p>
+<div class="code-block"><pre><code>✅ Transformer 架构理解与实现
+✅ 大模型使用与微调（LoRA / QLoRA）
+✅ RAG 与 Agent 应用开发
+✅ 模型部署与服务化</code></pre></div>
+<p><strong>推荐的后续方向</strong>（选择一个深入）：</p>
+<div class="table-wrap"><table>
+<thead><tr><th>方向</th><th>适合人群</th><th>推荐资源</th></tr></thead>
+<tbody>
+<tr><td><strong>Agent / Multi-Agent</strong></td><td>对自主系统感兴趣</td><td>AutoGPT 源码、LangGraph、MetaGPT 论文</td></tr>
+<tr><td><strong>多模态</strong></td><td>想做视觉+语言+音频应用</td><td>LLaVA、GPT-4V API、Pix2Struct</td></tr>
+<tr><td><strong>推理优化</strong></td><td>关注部署效率</td><td>Flash Attention v2、vLLM、TGI 源码</td></tr>
+<tr><td><strong>RLHF / 对齐</strong></td><td>想深入 AI 安全</td><td>InstructGPT 论文、TRLX 库、alignment-handbook</td></tr>
+<tr><td><strong>学术研究</strong></td><td>想发论文</td><td>arXiv 追踪、ICLR/NeurIPS 投稿</td></tr>
+</tbody></table></div>
+<hr>
+<h2>📋 每日学习模板</h2>
+<div class="code-block code-markdown"><pre><code>## Day X - [主题]
+
+### ⏱️ 实际用时
+___ 小时（计划 ___ 小时）
+
+### ✅ 今日完成
+- [ ] 任务 1
+- [ ] 任务 2
+- [ ] 任务 3
+
+### 📝 关键概念（3 句话总结今天学到的最重要的东西）
+1.
+2.
+3.
+
+### 🐛 遇到的问题与解决
+- 问题 1：___
+  解决：___
+
+### 💡 明日计划
+- 继续 Day X 剩余任务 / 开始 Day X+1</code></pre></div>
+<hr>
+<h2>🚀 快速参考卡</h2>
+<h3>环境安装一条命令</h3>
+<div class="code-block code-bash"><pre><code># Python 环境（推荐 conda）
+conda create -n llm python=3.10 -y
+conda activate llm
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+pip install transformers datasets peft accelerate bitsandbytes langchain sentence-transformers faiss-cpu vllm lm-eval</code></pre></div>
+<h3>Hugging Face 常用模型速查</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>任务</th><th>推荐模型</th><th>最低显存</th></tr></thead>
+<tbody>
+<tr><td>文本分类</td><td><code>bert-base-uncased</code></td><td>2GB</td></tr>
+<tr><td>文本生成</td><td><code>gpt2</code> / <code>gpt2-medium</code></td><td>2GB / 4GB</td></tr>
+<tr><td>中文生成</td><td><code>uer/gpt2-chinese-cluecorpussmall</code></td><td>2GB</td></tr>
+<tr><td>指令微调</td><td><code>meta-llama/Llama-2-7b-chat-hf</code></td><td>8GB（QLoRA 4bit）</td></tr>
+<tr><td>代码生成</td><td><code>bigcode/starcoder2-3b</code></td><td>6GB</td></tr>
+<tr><td>Embedding</td><td><code>BAAI/bge-large-zh-v1.5</code></td><td>2GB</td></tr>
+<tr><td>视觉问答</td><td><code>llava-hf/llava-1.5-7b-hf</code></td><td>8GB</td></tr>
+</tbody></table></div>
+<h3>常用命令速查</h3>
+<div class="code-block code-bash"><pre><code># 克隆 GitHub 代码
+git clone https://github.com/huggingface/transformers
+
+# 下载 HuggingFace 模型
+from transformers import AutoModel, AutoTokenizer
+model = AutoModel.from_pretrained("meta-llama/Llama-2-7b")
+tokenizer = AutoTokenizer.from_pretrained("meta-llama/Llama-2-7b")
+
+# 查看 GPU 使用
+nvidia-smi
+
+# PyTorch 查看显存
+python -c "import torch; print(torch.cuda.get_device_properties(0))"
+
+# 用 wandb 记录训练
+pip install wandb
+wandb login</code></pre></div>
+<hr>
+<h2>📌 常见问题 Q&A</h2>
+<p><strong>Q：Day 8 的 Attention 实现卡住了怎么办？</strong></p>
+<p>A：先看 Harvard Annotated Transformer 的代码，抄一遍理解，然后再自己写。不要在理论没懂之前就动手写。</p>
+<p><strong>Q：没有 GPU 能完成这个计划吗？</strong></p>
+<p>A：Day 1-14 大部分任务可以在 Colab T4 上完成。Day 15-21 的训练任务需要 A100，可以考虑 RunPod 按需付费（约 $0.5/小时）。Day 22+ 的部署任务 CPU 可以跑，只是慢。</p>
+<p><strong>Q：进度落后了怎么办？</strong></p>
+<p>A：不要跳着赶进度。第 2 周（Transformer）是整个计划的基础，这部分没理解后面全是白学。如果 Day 8-10 超过 3 天还没完成，增加到 Day 8.5 / 9.5。</p>
+<p><strong>Q：Day 16 LoRA 跑不起来（显存不够）？</strong></p>
+<p>A：用 GPT-2 代替 LLaMA-2-7B，代码完全兼容，只是参数更少。如果 Colab T4 也不够，用 QLoRA 4-bit 模式。</p>
+<p><strong>Q：RAG 效果不好怎么优化？</strong></p>
+<p>A：1. 换更好的 Embedding 模型（推荐 <code>BAAI/bge-large-zh-v1.5</code>）；2. 调 chunk_size（试试 300/500/800）；3. 增加重排序（Rerank）；4. 增加上下文窗口。</p>
+<p><strong>Q：30 天结束后还想继续学？</strong></p>
+<p>A：选择一个方向深入。推荐：Agent 系统（LangGraph）、多模态（RAG + Vision）、推理优化（vLLM 源码）。</p>
+<hr>
+<p>*最后更新：2026 年 5 月 21 日*</p>
+<p>*改进版 by QClaw AI 助手*</p>
+<p>*基于杨戬 AI 助手原版计划优化*</p>
+  </div>
+  <footer>
+    <p>© 2026 真一格 &middot; <a href="https://zhenyige.github.io/bookmark-site">返回书签站</a></p>
+  </footer>
+</body>
+</html>
