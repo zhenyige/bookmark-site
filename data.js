@@ -32,6 +32,13 @@ const BOOKMARKS = [
     category: "我的",
     desc: "NAS 本地管理后台"
   },
+  {
+    id: 500,
+    name: "AI大模型成长计划（改进版）",
+    url: "ai-learning-plan.html",
+    category: "我的",
+    desc: "30天AI学习计划（改进版）"
+  },
 
   // ===== AI =====
 
